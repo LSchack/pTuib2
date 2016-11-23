@@ -29,7 +29,11 @@ def webhook():
     return r
 
 def makeWebhookResult(req):
-    thingstodo = {'2016-11-23':'Go to A, B or C', '2016-11-24':'Do D, E, F', '2016-11-25':'Visit G, H, I'}
+    thingstodo = {'2016-11-23':'Go to A, B or C', 
+                  '2016-11-24':'You should visit D, E, or F. They have great X!', 
+                  '2016-11-25':'Visit G, H, I',
+                  '2016-11-26':'Go to J or K',
+                  '2016-11-27':'You could visit our nice spa or have a walk at the beach!'}
 
     if req.get("result").get("action") == "send.programme":
         result = req.get("result")
