@@ -28,15 +28,15 @@ def webhook():
     return r
 
 def makeWebhookResult(req):
-    if req.get("result").get("action") != "shipping.cost":
+    if req.get("result").get("action") != "send.programme":
         return {}
     result = req.get("result")
     parameters = result.get("parameters")
-    zone = parameters.get("shipping-zone")
+    date = parameters.get("date")
 
-    cost = {'Europe':100, 'North America':200, 'South America':300, 'Asia':400, 'Africa':500}
+    thingstodo = {'2016-11-23':'Go to A, B or C', '2016-11-24':'Do D, E, F', '2016-11-25':'Visit G, H, I'}
 
-    speech = "The cost of shipping to " + zone + " is " + str(cost[zone]) + " euros."
+    speech = "On " + str(date) + " you could do the following: " + str(thingstodo[date])
 
     print("Response:")
     print(speech)
@@ -46,7 +46,7 @@ def makeWebhookResult(req):
         "displayText": speech,
         #"data": {},
         # "contextOut": [],
-        "source": "apiai-onlinestore-shipping"
+        "source": "ptuidb-thingstodo"
     }
 
 
