@@ -51,7 +51,14 @@ def makeWebhookResult(req):
         parameters = result.get("parameters")
         date = time.strftime("%Y-%m-%d")
         speech = "Today you could do the following: "+str(thingstodo[date])
-        
+     
+    elif req.get("result").get("action") == "book.spa":
+        result = req.get("result")
+        parameters = result.get("parameters")
+        date = parameters.get("date")
+        time = parameters.get("time")
+        speech = "Sorry, there is no appointment available on "+str(date)+ " at " + str(time) +". But a time slot at " +str(time+1)+" is available. May I reserve it for you?"
+                
     else:
         return{}    
     
