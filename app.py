@@ -35,12 +35,12 @@ def makeWebhookResult(req):
         thingstodo = {'2016-11-23':'Go to A, B or C', '2016-11-24':'Do D, E, F', '2016-11-25':'Visit G, H, I'}
         speech = "On " + str(date) + " you could do the following: " + str(thingstodo[date])
 
-    #elif req.get("result").get("action") == "spa.info":
-    #     result = req.get("result")
-    #     #parameters = result.get("parameters")
-    #    speech = "Our spa has the following to offer: nice massages, fango and so on..."
-    #else
-    #    return{}    
+    elif req.get("result").get("action") == "spa.info":
+        result = req.get("result")
+        parameters = result.get("parameters")
+        speech = "Our spa has the following to offer: nice massages, fango and so on..."
+    else
+        return{}    
     
     print("Response:")
     print(speech)
