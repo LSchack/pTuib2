@@ -7,7 +7,6 @@ import os
 from flask import Flask
 from flask import request
 from flask import make_response
-from random import randint
 
 # Flask app should start in global layout
 app = Flask(__name__)
@@ -40,13 +39,6 @@ def makeWebhookResult(req):
         result = req.get("result")
         parameters = result.get("parameters")
         speech = "Our spa has the following to offer: nice massages, fango and so on..."
-        
-    elif req.get("result").get("action") = "random.number":
-        result = req.get("result")
-        parameters = result.get("parameters")
-        date = parameters.get("date")
-        thingstodo = {'2016-11-23':'Go to A, B or C', '2016-11-24':'Do D, E, F', '2016-11-25':'Visit G, H, I'}
-        speech = "This is the random number I chose for you: "+str(randint(0,9))
     else
         return{}    
     
