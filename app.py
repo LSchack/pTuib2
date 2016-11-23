@@ -39,7 +39,7 @@ def makeWebhookResult(req):
         result = req.get("result")
         parameters = result.get("parameters")
         speech = "Our spa has the following to offer: nice massages, fango and so on..."
-    else
+    else:
         return{}    
     
     print("Response:")
